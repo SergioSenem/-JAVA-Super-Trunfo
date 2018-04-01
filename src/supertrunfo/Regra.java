@@ -56,46 +56,6 @@ public class Regra {
         }
     }
     
-    public CartaDeus[] embaralhar()
-    {
-        CartaDeus pilhaNova[] = new CartaDeus[32];
-        int i;
-        int contNum = 0;
-        int nums[] = new int[32];
-        for(i=0;i<32;i++){
-            int index = -1;
-            int j;
-            boolean jaExiste = false;
-            while(index == -1 || jaExiste){
-                jaExiste = false;
-                index = (int)(long)Math.round(Math.random()*31);
-                for(j=0;j<contNum;j++){
-                    if(nums[j] == index){
-                        jaExiste = true;
-                    }
-                }
-            }
-        
-            
-            nums[contNum] = index;
-            pilhaNova[contNum] = this.pilha[index];
-            contNum++;
-        }
-        
-        return pilhaNova;
-    }
-    
-    
-    public void distribuir(Jogador j1, Bot j2){
-        int i;
-        for(i = 0;i<16;i++){
-            j1.cartas[i] = this.pilha[i];
-            j1.numCartas = 16;
-            j2.cartas[i] = this.pilha[i+16];
-            j2.numCartas = 16;
-        }
-    }
-    
     public boolean verificarCartas(Jogador j, Bot b)
     {
         boolean acabou;
