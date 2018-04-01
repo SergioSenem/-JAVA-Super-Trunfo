@@ -17,32 +17,21 @@ public class Bot {
             attMax = carta.adoradores;
             att = 'A';
         }
-        else{
-            if(carta.poder > attMax){
-                attMax = carta.poder;
-                att = 'P';
-            }
-            else{
-                if(carta.forca > attMax){
-                    attMax = carta.forca;
-                    att = 'F';
-                }
-                else{
-                    if(carta.inteligencia > attMax){
-                        attMax = carta.inteligencia;
-                        att = 'I';
-                    }
-                    else{
-                        if(carta.velocidade > attMax){
-                            attMax = carta.velocidade;
-                            att = 'V';
-                        }
-                        else{
-                            System.out.println("(Bot)Erro ao escolher carta!");
-                        }
-                    }
-                }
-            }
+        if(carta.poder > attMax){
+            attMax = carta.poder;
+            att = 'P';
+        }
+        if(carta.forca > attMax){
+            attMax = carta.forca;
+            att = 'F';
+        }
+        if(carta.inteligencia > attMax){
+            attMax = carta.inteligencia;
+            att = 'I';
+        }
+        if(carta.velocidade > attMax){
+            attMax = carta.velocidade;
+            att = 'V';
         }
         
         return att;
@@ -68,6 +57,10 @@ public class Bot {
             this.cartas[i] = this.cartas[i+1];
         }
         this.cartas[this.numCartas-1] = primeira;
+    }
+    
+    public void mostraNumCartas(){
+        System.out.println("\nNúmero de cartas na mão (Computador): " + this.numCartas + "\n");
     }
     
 }

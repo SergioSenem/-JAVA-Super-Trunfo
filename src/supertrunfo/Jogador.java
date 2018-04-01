@@ -46,4 +46,8 @@ public class Jogador {
         this.cartas[this.numCartas-1] = primeira;
     }
     
+    public void mostraNumCartas(){
+        System.out.println("\nNúmero de cartas na mão (Jogador): " + this.numCartas + "\n");
+    }
+    
 }

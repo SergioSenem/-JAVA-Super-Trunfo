@@ -4,74 +4,55 @@ public class Regra {
     
     CartaDeus[] pilha = new CartaDeus[32];
     CartaDeus[] cartAcum = new CartaDeus[32];
+    String codSuperTrunfo;
+    char catSup;
     int numCartAcum;
     
     public void compararCarta(char esc, Jogador j, Bot b)
     {
-        int att1 = 0, att2 = 0;
-        switch (esc){
-            case 'P':
-                att1 = j.cartas[0].poder;
-                att2 = b.cartas[0].poder;
-                break;
-            case 'F':
-                att1 = j.cartas[0].forca;
-                att2 = b.cartas[0].forca;
-                break;
-            case 'I':
-                att1 = j.cartas[0].inteligencia;
-                att2 = b.cartas[0].inteligencia;
-                break;
-            case 'V':
-                att1 = j.cartas[0].velocidade;
-                att2 = b.cartas[0].velocidade;
-                break;
-            case 'A':
-                att1 = j.cartas[0].adoradores;
-                att2 = b.cartas[0].adoradores;
-                break;
-            default:
-                System.out.println("Erro ao comparar cartas");
+        int attJ, attB;
+        
+        CartaDeus cartaJ;
+        cartaJ = j.cartas[0];
+        CartaDeus cartaB;
+        cartaB = b.cartas[0];
+        
+        int resultado;
+        
+        
+        if((attJ = this.getAtt(esc, cartaJ)) == -1){
+            System.out.println("Erro na atribuição de valor para atributo (Jogador)");
         }
-        if(att1 == 0){System.out.println("Deu merda");}
-        if(att2 == 0){System.out.println("Deu merda");}
-        if(att1 > att2){
-            j.vez = true;
-            b.vez = false;
-            j.ganharCarta(b.cartas[0]);
-            b.perderCarta();
-            if(this.numCartAcum != 0){
-                int i;
-                for(i=0;i<this.numCartAcum;i++){
-                    j.ganharCarta(this.cartAcum[i]);
-                }
-                this.numCartAcum = 0;
-            }
-            System.out.println("Jogador ganhou a rodada!");
+
+        if((attB = this.getAtt(esc, cartaB)) == -1){
+            System.out.println("Erro na atribuição de valor para atributo (Bot)");
+        }
+
+
+        if(attJ > attB){
+            resultado = 1;
         }
         else{
-            if(att2 > att1){
-                j.vez = false;
-                b.vez = true;
-                b.ganharCarta(j.cartas[0]);
-                j.perderCarta();
-                if(this.numCartAcum != 0){
-                    int i;
-                    for(i=0;i<this.numCartAcum;i++){
-                        b.ganharCarta(this.cartAcum[i]);
-                    }
-                    this.numCartAcum = 0;
-                }
-                System.out.println("Computador ganhou a rodada!");
+            if(attJ < attB){
+                resultado = 2;
             }
             else{
-                this.numCartAcum += 2;
-                this.cartAcum[this.numCartAcum - 2] = j.cartas[0];
-                this.cartAcum[this.numCartAcum - 1] = b.cartas[0];
-                j.perderCarta();
-                b.perderCarta();
-                System.out.println("A rodada terminou em empate!");
+                resultado = 0;
             }
+        }
+        
+        switch (resultado){
+            case 1:
+                this.jogGanhaRodada(j, b);
+                break;
+            case 2:
+                this.botGanhaRodada(j, b);
+                break;
+            case 0:
+                this.empataRodada(j, b);
+                break;
+            default:
+                System.out.println("Erro ao determinar vencedor da rodada!");
         }
     }
     
@@ -119,19 +100,19 @@ public class Regra {
     {
         boolean acabou;
         if(j.numCartas != 0 && b.numCartas == 0){
-            System.out.println("Jogador ganhou!");
+            System.out.println("Jogador ganhou o jogo!");
             j.venc = true;
             acabou = true;
         }
         else{
             if(j.numCartas == 0 && b.numCartas != 0){
-                System.out.println("Bot ganhou!");
+                System.out.println("Computador ganhou o jogo!");
                 b.venc = true;
                 acabou = true;
             }
             else{
                 if(j.numCartas == 0 && b.numCartas == 0){
-                    System.out.println("Empatou!");
+                    System.out.println("O jogo terminou em empate!");
                     acabou = true;
                 }
                 else{
@@ -161,33 +142,136 @@ public class Regra {
         cartaJ = j.cartas[0];
         CartaDeus cartaB = new CartaDeus();
         cartaB = b.cartas[0];
-        System.out.println("Nome(VC): " + cartaJ.nome + "\n");
-        System.out.println("Escolher Caracteristica\n");
-        System.out.println("[P] - Poder: " + cartaJ.poder);
-        System.out.println("[F] - Forca: " + cartaJ.forca);
-        System.out.println("[I] - Inteligencia: " + cartaJ.inteligencia);
-        System.out.println("[V] - Velocidade: " + cartaJ.velocidade);
-        System.out.println("[A] - Adoradores: " + cartaJ.adoradores + "\n");
-        
-        System.out.println("Nome(BOT): " + cartaB.nome + "\n");
-        System.out.println("Escolher Caracteristica\n");
-        System.out.println("[P] - Poder: " + cartaB.poder);
-        System.out.println("[F] - Forca: " + cartaB.forca);
-        System.out.println("[I] - Inteligencia: " + cartaB.inteligencia);
-        System.out.println("[V] - Velocidade: " + cartaB.velocidade);
-        System.out.println("[A] - Adoradores: " + cartaB.adoradores + "\n");
-        if(j.vez && !b.vez){
-            char car = j.escolherCarac();
-            this.compararCarta(car, j, b);
+        char car = 'X';
+        if(cartaJ.codigo.equals(this.codSuperTrunfo) && cartaB.codigo.charAt(0) != this.catSup){
+            this.mostraCartas(cartaJ, cartaB, car);
+            System.out.println("SUPER TRUNFO!");
+            this.jogGanhaRodada(j, b);
         }
         else{
-            if(!j.vez && b.vez){
-                char car = b.escolherCarac();
-                this.compararCarta(car, j, b);
+            if(cartaB.codigo.equals(this.codSuperTrunfo) && cartaJ.codigo.charAt(0) != this.catSup){
+                this.mostraCartas(cartaJ, cartaB, car);
+                System.out.println("SUPER TRUNFO!");
+                this.botGanhaRodada(j, b);
             }
             else{
-                System.out.println("Erro ao verificar vez de jogadores!");
+                if(j.vez && !b.vez){
+                    car = j.escolherCarac();
+                    this.mostraCartas(cartaJ, cartaB, car);
+                    this.compararCarta(car, j, b);
+                }
+                else{
+                    if(!j.vez && b.vez){
+                        car = b.escolherCarac();
+                        this.mostraCartas(cartaJ, cartaB, car);
+                        this.compararCarta(car, j, b);
+                    }
+                    else{
+                        System.out.println("Erro ao verificar vez de jogadores!");
+                    }
+                }
             }
+        }
+        j.mostraNumCartas();
+        b.mostraNumCartas();
+    }
+    
+    public int getAtt(char esc, CartaDeus carta){
+        int att;
+        switch (esc){
+            case 'P':
+                att = carta.poder;
+                break;
+            case 'F':
+                att = carta.forca;
+                break;
+            case 'I':
+                att = carta.inteligencia;
+                break;
+            case 'V':
+                att = carta.velocidade;
+                break;
+            case 'A':
+                att = carta.adoradores;
+                break;
+            default:
+                att = -1;
+    
+        }
+        return att;
+    }
+    
+    public void jogGanhaRodada(Jogador j, Bot b){
+        CartaDeus cartaB = b.cartas[0];
+        j.vez = true;
+        b.vez = false;
+        j.ganharCarta(cartaB);
+        b.perderCarta();
+        if(this.numCartAcum != 0){
+            int i;
+            for(i=0;i<this.numCartAcum;i++){
+                j.ganharCarta(this.cartAcum[i]);
+            }
+            this.numCartAcum = 0;
+        }
+        System.out.println("Jogador ganhou a rodada!\n");
+    }
+    
+    public void botGanhaRodada(Jogador j, Bot b){
+        CartaDeus cartaJ = j.cartas[0];
+        j.vez = false;
+        b.vez = true;
+        b.ganharCarta(cartaJ);
+        j.perderCarta();
+        if(this.numCartAcum != 0){
+            int i;
+            for(i=0;i<this.numCartAcum;i++){
+                b.ganharCarta(this.cartAcum[i]);
+            }
+            this.numCartAcum = 0;
+        }
+        System.out.println("Computador ganhou a rodada!\n");
+    }
+    
+    public void empataRodada(Jogador j, Bot b){
+        CartaDeus cartaJ = j.cartas[0];
+        CartaDeus cartaB = b.cartas[0];
+        this.numCartAcum += 2;
+        this.cartAcum[this.numCartAcum - 2] = cartaJ;
+        this.cartAcum[this.numCartAcum - 1] = cartaB;
+        j.perderCarta();
+        b.perderCarta();
+        System.out.println("A rodada terminou em empate!\n");
+    }
+    
+    public void mostraCartas(CartaDeus cartaJ, CartaDeus cartaB, char esc){
+        System.out.println("CARTAS: \n");
+        System.out.println("Nome:         " + cartaJ.nome + "   " + cartaB.nome + "\n");
+        System.out.println("Poder:        " + cartaJ.poder + "         " + cartaB.poder);
+        System.out.println("Força:        " + cartaJ.forca + "         " + cartaB.forca);
+        System.out.println("Inteligencia: " + cartaJ.inteligencia + "         " + cartaB.inteligencia);
+        System.out.println("Velocidade:   " + cartaJ.velocidade + "         " + cartaB.velocidade);
+        System.out.println("Adoradores:   " + cartaJ.adoradores + "         " + cartaB.adoradores + "\n");
+        
+        switch (esc){
+            case 'P':
+                System.out.println("Atributo escolhido: Poder");
+                break;
+            case 'F':
+                System.out.println("Atributo escolhido: Força");
+                break;
+            case 'I':
+                System.out.println("Atributo escolhido: Inteligencia");
+                break;
+            case 'V':
+                System.out.println("Atributo escolhido: Velocidade");
+                break;
+            case 'A':
+                System.out.println("Atributo escolhido: Adoradores");
+                break;
+            default:
+                System.out.println("Atributo escolhido: Nenhum");
+                break;
         }
     }
     

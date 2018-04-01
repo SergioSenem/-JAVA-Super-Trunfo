@@ -1,5 +1,6 @@
 package supertrunfo;
 import java.util.Scanner;
+import java.io.IOException;
 
 public class SuperTrunfo {
 
@@ -49,14 +50,26 @@ public class SuperTrunfo {
         reg.pilha = reg.embaralhar();
         reg.distribuir(jog1, bot);
         
+        reg.codSuperTrunfo = "B1";
+        reg.catSup = 'A';
+        
         jog1.venc = false;
         bot.venc = false;
         
         jog1.vez = true;
         bot.vez = false;
         
+        jog1.cartas[0] = reg.getCarta("B1", "Zeus", 70, 50, 60, 30, 90);
+        
         while(!reg.verificarCartas(jog1, bot)){
             reg.jogar(jog1, bot);
+            System.out.println("\nPressione Enter para continuar");
+            try{
+                System.in.read();
+            }
+            catch(IOException e){
+                System.out.println(e);
+            }
         }
         
     }
