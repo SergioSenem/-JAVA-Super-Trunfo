@@ -4,10 +4,9 @@ public class Bot {
     
     int numCartas;
     boolean vez;
-    boolean venc;
     CartaDeus cartas[] = new CartaDeus[32];
     
-    public char escolherCarac()
+    public char escolherCaracteristica()
     {
         CartaDeus carta = new CartaDeus();
         carta = this.cartas[0];

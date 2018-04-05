@@ -11,41 +11,41 @@ public class Jogo {
     
     public void setPilha(){
         this.reg.numCartAcum = 0;
-        this.reg.pilha[0] = reg.getCarta("A1", "Odin", 60, 70, 55, 30, 70);
-        this.reg.pilha[1] = reg.getCarta("A2", "Thor", 70, 80, 30, 40, 80);
-        this.reg.pilha[2] = reg.getCarta("A3", "Loki", 80, 30, 75, 70, 40);
-        this.reg.pilha[3] = reg.getCarta("A4", "Hela", 90, 80, 75, 40, 10);
-        this.reg.pilha[4] = reg.getCarta("A5", "Fenrir", 70, 99, 15, 70, 10);
-        this.reg.pilha[5] = reg.getCarta("A6", "Heimdallr", 50, 60, 65, 30, 40);
-        this.reg.pilha[6] = reg.getCarta("A7", "Ullr", 50, 60, 55, 70, 40);
-        this.reg.pilha[7] = reg.getCarta("A8", "Sif", 40, 40, 55, 50, 40);
+        this.reg.pilha.cartas[0] = reg.criarCarta("A1", "Odin", 60, 70, 55, 30, 70);
+        this.reg.pilha.cartas[1] = reg.criarCarta("A2", "Thor", 70, 80, 30, 40, 80);
+        this.reg.pilha.cartas[2] = reg.criarCarta("A3", "Loki", 80, 30, 75, 70, 40);
+        this.reg.pilha.cartas[3] = reg.criarCarta("A4", "Hela", 90, 80, 75, 40, 10);
+        this.reg.pilha.cartas[4] = reg.criarCarta("A5", "Fenrir", 70, 99, 15, 70, 10);
+        this.reg.pilha.cartas[5] = reg.criarCarta("A6", "Heimdallr", 50, 60, 65, 30, 40);
+        this.reg.pilha.cartas[6] = reg.criarCarta("A7", "Ullr", 50, 60, 55, 70, 40);
+        this.reg.pilha.cartas[7] = reg.criarCarta("A8", "Sif", 40, 40, 55, 50, 40);
        
-        this.reg.pilha[8] = reg.getCarta("B1", "Zeus", 70, 50, 60, 30, 90);
-        this.reg.pilha[9] = reg.getCarta("B2", "Hera", 40, 40, 65, 40, 60);
-        this.reg.pilha[10] = reg.getCarta("B3", "Ares", 50, 80, 25, 60, 65);
-        this.reg.pilha[11] = reg.getCarta("B4", "Poseidon", 90, 50, 55, 40, 60);
-        this.reg.pilha[12] = reg.getCarta("B5", "Hades", 70, 40, 55, 30, 30);
-        this.reg.pilha[13] = reg.getCarta("B6", "Afrodite", 50, 30, 30, 30, 99);
-        this.reg.pilha[14] = reg.getCarta("B7", "Hermes", 40, 40, 50, 99, 50);
-        this.reg.pilha[15] = reg.getCarta("B8", "Atena", 60, 50, 99, 40, 70);
+        this.reg.pilha.cartas[8] = reg.criarCarta("B1", "Zeus", 70, 50, 60, 30, 90);
+        this.reg.pilha.cartas[9] = reg.criarCarta("B2", "Hera", 40, 40, 65, 40, 60);
+        this.reg.pilha.cartas[10] = reg.criarCarta("B3", "Ares", 50, 80, 25, 60, 65);
+        this.reg.pilha.cartas[11] = reg.criarCarta("B4", "Poseidon", 90, 50, 55, 40, 60);
+        this.reg.pilha.cartas[12] = reg.criarCarta("B5", "Hades", 70, 40, 55, 30, 30);
+        this.reg.pilha.cartas[13] = reg.criarCarta("B6", "Afrodite", 50, 30, 30, 30, 99);
+        this.reg.pilha.cartas[14] = reg.criarCarta("B7", "Hermes", 40, 40, 50, 99, 50);
+        this.reg.pilha.cartas[15] = reg.criarCarta("B8", "Atena", 60, 50, 99, 40, 70);
         
-        this.reg.pilha[16] = reg.getCarta("C1", "Chaac", 60, 70, 35, 30, 80);
-        this.reg.pilha[17] = reg.getCarta("C2", "Kukulcan", 80, 40, 60, 50, 60);
-        this.reg.pilha[18] = reg.getCarta("C3", "Ixbalanque", 50, 50, 40, 70, 50);
-        this.reg.pilha[19] = reg.getCarta("C4", "Mulzencab", 70, 40, 50, 80, 60);
-        this.reg.pilha[20] = reg.getCarta("C5", "Ah Puch", 80, 30, 65, 40, 40);
-        this.reg.pilha[21] = reg.getCarta("C6", "Hun Batz", 50, 60, 35, 60, 50);
-        this.reg.pilha[22] = reg.getCarta("C7", "Cabrakan", 55, 90, 25, 20, 60);
-        this.reg.pilha[23] = reg.getCarta("C8", "Awilix", 50, 30, 60, 70, 60);
+        this.reg.pilha.cartas[16] = reg.criarCarta("C1", "Chaac", 60, 70, 35, 30, 80);
+        this.reg.pilha.cartas[17] = reg.criarCarta("C2", "Kukulcan", 80, 40, 60, 50, 60);
+        this.reg.pilha.cartas[18] = reg.criarCarta("C3", "Ixbalanque", 50, 50, 40, 70, 50);
+        this.reg.pilha.cartas[19] = reg.criarCarta("C4", "Mulzencab", 70, 40, 50, 80, 60);
+        this.reg.pilha.cartas[20] = reg.criarCarta("C5", "Ah Puch", 80, 30, 65, 40, 40);
+        this.reg.pilha.cartas[21] = reg.criarCarta("C6", "Hun Batz", 50, 60, 35, 60, 50);
+        this.reg.pilha.cartas[22] = reg.criarCarta("C7", "Cabrakan", 55, 90, 25, 20, 60);
+        this.reg.pilha.cartas[23] = reg.criarCarta("C8", "Awilix", 50, 30, 60, 70, 60);
         
-        this.reg.pilha[24] = reg.getCarta("D1", "Guan Yu", 50, 70, 60, 50, 50);
-        this.reg.pilha[25] = reg.getCarta("D2", "Chang'e", 70, 20, 60, 60, 40);
-        this.reg.pilha[26] = reg.getCarta("D3", "Hou Yi", 50, 40, 65, 90, 50);
-        this.reg.pilha[27] = reg.getCarta("D4", "He Bo", 90, 50, 50, 50, 70);
-        this.reg.pilha[28] = reg.getCarta("D5", "Zhong Kui", 80, 40, 65, 30, 40);
-        this.reg.pilha[29] = reg.getCarta("D6", "Ao Kuang", 70, 60, 60, 70, 50);
-        this.reg.pilha[30] = reg.getCarta("D7", "Xing Tian", 50, 90, 25, 20, 70);
-        this.reg.pilha[31] = reg.getCarta("D8", "Son Wukong", 60, 60, 50, 60, 60);
+        this.reg.pilha.cartas[24] = reg.criarCarta("D1", "Guan Yu", 50, 70, 60, 50, 50);
+        this.reg.pilha.cartas[25] = reg.criarCarta("D2", "Chang'e", 70, 20, 60, 60, 40);
+        this.reg.pilha.cartas[26] = reg.criarCarta("D3", "Hou Yi", 50, 40, 65, 90, 50);
+        this.reg.pilha.cartas[27] = reg.criarCarta("D4", "He Bo", 90, 50, 50, 50, 70);
+        this.reg.pilha.cartas[28] = reg.criarCarta("D5", "Zhong Kui", 80, 40, 65, 30, 40);
+        this.reg.pilha.cartas[29] = reg.criarCarta("D6", "Ao Kuang", 70, 60, 60, 70, 50);
+        this.reg.pilha.cartas[30] = reg.criarCarta("D7", "Xing Tian", 50, 90, 25, 20, 70);
+        this.reg.pilha.cartas[31] = reg.criarCarta("D8", "Son Wukong", 60, 60, 50, 60, 60);
     }
     
     public void setSuperTrunfo(String cod){
@@ -58,51 +58,22 @@ public class Jogo {
     
     public void setJogador(){
         this.jog = new Jogador();
-        this.jog.venc = false;
         this.jog.vez = true;
     }
     
     public void setBot(){
         this.bot = new Bot();
-        this.bot.venc = false;
         this.bot.vez = false;
     }
     
-    public void embaralhar()
-    {
-        CartaDeus pilhaNova[] = new CartaDeus[32];
-        int i;
-        int contNum = 0;
-        int nums[] = new int[32];
-        for(i=0;i<32;i++){
-            int index = -1;
-            int j;
-            boolean jaExiste = false;
-            while(index == -1 || jaExiste){
-                jaExiste = false;
-                index = (int)(long)Math.round(Math.random()*31);
-                for(j=0;j<contNum;j++){
-                    if(nums[j] == index){
-                        jaExiste = true;
-                    }
-                }
-            }
-        
-            
-            nums[contNum] = index;
-            pilhaNova[contNum] = this.reg.pilha[index];
-            contNum++;
-        }
-        
-        this.reg.pilha = pilhaNova;
-    }
+    
     
     public void distribuir(){
         int i;
         for(i = 0;i<16;i++){
-            this.jog.cartas[i] = this.reg.pilha[i];
+            this.jog.cartas[i] = this.reg.pilha.cartas[i];
             this.jog.numCartas = 16;
-            this.bot.cartas[i] = this.reg.pilha[i+16];
+            this.bot.cartas[i] = this.reg.pilha.cartas[i+16];
             this.bot.numCartas = 16;
         }
     }
@@ -113,7 +84,7 @@ public class Jogo {
         this.setBot();
         this.setCatSuperior('A');
         this.setSuperTrunfo("B1");
-        this.embaralhar();
+        this.reg.pilha.embaralhar();
         this.distribuir();
     }
     

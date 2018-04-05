@@ -6,9 +6,8 @@ public class Jogador {
     int numCartas;
     boolean vez;
     CartaDeus cartas[] = new CartaDeus[32];
-    boolean venc;
     
-    public char escolherCarac()
+    public char escolherCaracteristica(Pilha pilha)
     {
         CartaDeus carta = new CartaDeus(); 
         carta = this.cartas[0];
@@ -16,11 +15,11 @@ public class Jogador {
         char carac;
         System.out.println("Nome: " + carta.nome + "\n");
         System.out.println("Escolher Caracteristica\n");
-        System.out.println("[P] - Poder: " + carta.poder);
-        System.out.println("[F] - Forca: " + carta.forca);
-        System.out.println("[I] - Inteligencia: " + carta.inteligencia);
-        System.out.println("[V] - Velocidade: " + carta.velocidade);
-        System.out.println("[A] - Adoradores: " + carta.adoradores);
+        System.out.println("[P] - Poder: " + carta.poder + " (" + pilha.maxPoder +")");
+        System.out.println("[F] - Forca: " + carta.forca + " (" + pilha.maxForca +")");
+        System.out.println("[I] - Inteligencia: " + carta.inteligencia + " (" + pilha.maxInteligencia +")");
+        System.out.println("[V] - Velocidade: " + carta.velocidade + " (" + pilha.maxVelocidade +")");
+        System.out.println("[A] - Adoradores: " + carta.adoradores + " (" + pilha.maxAdoradores +")");
         carac = sc.next().charAt(0);
         return carac;
     }
