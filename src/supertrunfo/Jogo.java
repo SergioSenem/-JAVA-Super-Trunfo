@@ -29,23 +29,23 @@ public class Jogo {
         this.reg.pilha.cartas[14] = reg.criarCarta("B7", "Hermes", 40, 40, 50, 99, 50);
         this.reg.pilha.cartas[15] = reg.criarCarta("B8", "Atena", 60, 50, 99, 40, 70);
         
-        this.reg.pilha.cartas[16] = reg.criarCarta("C1", "Chaac", 60, 70, 35, 30, 80);
-        this.reg.pilha.cartas[17] = reg.criarCarta("C2", "Kukulcan", 80, 40, 60, 50, 60);
-        this.reg.pilha.cartas[18] = reg.criarCarta("C3", "Ixbalanque", 50, 50, 40, 70, 50);
-        this.reg.pilha.cartas[19] = reg.criarCarta("C4", "Mulzencab", 70, 40, 50, 80, 60);
-        this.reg.pilha.cartas[20] = reg.criarCarta("C5", "Ah Puch", 80, 30, 65, 40, 40);
-        this.reg.pilha.cartas[21] = reg.criarCarta("C6", "Hun Batz", 50, 60, 35, 60, 50);
-        this.reg.pilha.cartas[22] = reg.criarCarta("C7", "Cabrakan", 55, 90, 25, 20, 60);
-        this.reg.pilha.cartas[23] = reg.criarCarta("C8", "Awilix", 50, 30, 60, 70, 60);
+        this.reg.pilha.cartas[16] = reg.criarCarta("C1", "Isis", 80, 25, 70, 40, 80);
+        this.reg.pilha.cartas[17] = reg.criarCarta("C2", "Osiris", 40, 85, 60, 15, 95);
+        this.reg.pilha.cartas[18] = reg.criarCarta("C3", "Set", 70, 80, 65, 93, 10);
+        this.reg.pilha.cartas[19] = reg.criarCarta("C4", "Néftis", 75, 30, 65, 99, 35);
+        this.reg.pilha.cartas[20] = reg.criarCarta("C5", "Rá", 99, 45, 30, 15, 90);
+        this.reg.pilha.cartas[21] = reg.criarCarta("C6", "Hórus", 30, 99, 35, 55, 99);
+        this.reg.pilha.cartas[22] = reg.criarCarta("C7", "Toth", 78, 15, 99, 40, 55);
+        this.reg.pilha.cartas[23] = reg.criarCarta("C8", "Anubis", 88, 50, 45, 80, 85);
         
-        this.reg.pilha.cartas[24] = reg.criarCarta("D1", "Guan Yu", 50, 70, 60, 50, 50);
-        this.reg.pilha.cartas[25] = reg.criarCarta("D2", "Chang'e", 70, 20, 60, 60, 40);
-        this.reg.pilha.cartas[26] = reg.criarCarta("D3", "Hou Yi", 50, 40, 65, 90, 50);
-        this.reg.pilha.cartas[27] = reg.criarCarta("D4", "He Bo", 90, 50, 50, 50, 70);
-        this.reg.pilha.cartas[28] = reg.criarCarta("D5", "Zhong Kui", 80, 40, 65, 30, 40);
-        this.reg.pilha.cartas[29] = reg.criarCarta("D6", "Ao Kuang", 70, 60, 60, 70, 50);
-        this.reg.pilha.cartas[30] = reg.criarCarta("D7", "Xing Tian", 50, 90, 25, 20, 70);
-        this.reg.pilha.cartas[31] = reg.criarCarta("D8", "Son Wukong", 60, 60, 50, 60, 60);
+        this.reg.pilha.cartas[24] = reg.criarCarta("D1", "Kali", 70, 99, 55, 85, 45);
+        this.reg.pilha.cartas[25] = reg.criarCarta("D2", "Vamana", 80, 20, 55, 10, 70);
+        this.reg.pilha.cartas[26] = reg.criarCarta("D3", "Rama", 20, 65, 80, 99, 85);
+        this.reg.pilha.cartas[27] = reg.criarCarta("D4", "Ravana", 30, 88, 45, 65, 10);
+        this.reg.pilha.cartas[28] = reg.criarCarta("D5", "Xiva", 99, 80, 15, 77, 78);
+        this.reg.pilha.cartas[29] = reg.criarCarta("D6", "Ganesha", 60, 40, 99, 45, 88);
+        this.reg.pilha.cartas[30] = reg.criarCarta("D7", "Brama", 99, 35, 55, 60, 99);
+        this.reg.pilha.cartas[31] = reg.criarCarta("D8", "Vixnu", 88, 50, 68, 64, 90);
     }
     
     public void setSuperTrunfo(String cod){
