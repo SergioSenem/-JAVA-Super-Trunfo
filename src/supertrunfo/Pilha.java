@@ -39,14 +39,4 @@ public class Pilha {
         this.cartas = pilhaNova;
     }
     
-    public void setMaximos(int poder,      int forca,       int inteligencia, 
-                           int velocidade, int adoradores)
-    {
-        this.maxPoder = poder;
-        this.maxForca = forca;
-        this.maxInteligencia = inteligencia;
-        this.maxVelocidade = velocidade;
-        this.maxAdoradores = adoradores;
-    }
-    
 }

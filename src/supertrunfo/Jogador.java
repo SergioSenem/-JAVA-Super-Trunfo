@@ -36,13 +36,6 @@ public class Jogador {
     public void ganharCarta(CartaDeus carta){
         this.cartas[this.numCartas] = carta;
         this.numCartas++;
-        int i;
-        CartaDeus primeira = new CartaDeus();
-        primeira = this.cartas[0];
-        for(i=0;i<this.numCartas-1;i++){
-            this.cartas[i] = this.cartas[i+1];
-        }
-        this.cartas[this.numCartas-1] = primeira;
     }    
     public void mostraNumCartas(){
         System.out.println("\nNúmero de cartas na mão (Jogador): " + this.numCartas + "\n");

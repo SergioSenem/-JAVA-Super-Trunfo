@@ -135,45 +135,32 @@ public class Regra {
     }
     
     public void jogGanhaRodada(Jogador j, Bot b){
-        CartaDeus cartaB = b.cartas[0];
+        this.mandaPilha(j, b);
         j.vez = true;
         b.vez = false;
-        j.ganharCarta(cartaB);
-        b.perderCarta();
-        if(this.numCartAcum != 0){
-            int i;
-            for(i=0;i<this.numCartAcum;i++){
-                j.ganharCarta(this.cartAcum[i]);
-            }
-            this.numCartAcum = 0;
+        int i;
+        for(i=0;i<this.numCartAcum;i++){
+            j.ganharCarta(this.cartAcum[i]);
         }
+        this.numCartAcum = 0;
         System.out.println("Jogador ganhou a rodada!\n");
     }
     
     public void botGanhaRodada(Jogador j, Bot b){
-        CartaDeus cartaJ = j.cartas[0];
+        this.mandaPilha(j, b);
         j.vez = false;
         b.vez = true;
-        b.ganharCarta(cartaJ);
-        j.perderCarta();
-        if(this.numCartAcum != 0){
-            int i;
-            for(i=0;i<this.numCartAcum;i++){
-                b.ganharCarta(this.cartAcum[i]);
-            }
-            this.numCartAcum = 0;
+        int i;
+        for(i=0;i<this.numCartAcum;i++){
+            b.ganharCarta(this.cartAcum[i]);
         }
+        this.numCartAcum = 0;
+        
         System.out.println("Computador ganhou a rodada!\n");
     }
     
     public void empataRodada(Jogador j, Bot b){
-        CartaDeus cartaJ = j.cartas[0];
-        CartaDeus cartaB = b.cartas[0];
-        this.numCartAcum += 2;
-        this.cartAcum[this.numCartAcum - 2] = cartaJ;
-        this.cartAcum[this.numCartAcum - 1] = cartaB;
-        j.perderCarta();
-        b.perderCarta();
+        this.mandaPilha(j, b);
         System.out.println("A rodada terminou em empate!\n");
     }
     
@@ -206,6 +193,16 @@ public class Regra {
                 System.out.println("Atributo escolhido: Nenhum");
                 break;
         }
+    }
+    
+    public void mandaPilha(Jogador j, Bot b){
+        CartaDeus cartaJ = j.cartas[0];
+        CartaDeus cartaB = b.cartas[0];
+        this.numCartAcum += 2;
+        this.cartAcum[this.numCartAcum - 2] = cartaJ;
+        this.cartAcum[this.numCartAcum - 1] = cartaB;
+        j.perderCarta();
+        b.perderCarta();
     }
     
 }

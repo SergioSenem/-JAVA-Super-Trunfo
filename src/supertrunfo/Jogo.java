@@ -102,7 +102,22 @@ public class Jogo {
     public void comecarJogo(){
         while(!this.reg.verificarCartas(this.jog, this.bot)){
             this.novaRodada();
+            this.mostraMaos();
         }
+    }
+    
+    public void mostraMaos(){
+        int i;
+        System.out.println("\nJOGADOR\n");
+        for(i=0;i<this.jog.numCartas;i++){
+            System.out.println("Carta: " + jog.cartas[i].nome);
+        }
+        
+        System.out.println("\nBOT\n");
+        for(i=0;i<this.bot.numCartas;i++){
+            System.out.println("Carta: " + bot.cartas[i].nome);
+        }
+        
     }
     
 }
